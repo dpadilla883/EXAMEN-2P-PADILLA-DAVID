@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16
+    container_name: andesfin_db
+    environment:
+      POSTGRES_DB: andesfin
+      POSTGRES_USER: andesfin
+      POSTGRES_PASSWORD: andesfin
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+
+  app:
+    build: .
+    container_name: andesfin_app
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/andesfin
+      DB_USER: andesfin
+      DB_PASS: andesfin
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
