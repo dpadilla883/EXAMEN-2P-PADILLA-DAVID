@@ -204,3 +204,14 @@ Para el request de ejemplo (capital = 3000), la ganancia esperada por producto e
 
 ---
 
+## Capturas
+
+
+### Prueba GET /usuarios (Postman)
+![GET usuarios](docs/postman_usuarios.png)
+
+### Prueba GET /productos (Postman)
+![GET productos](docs/postman_productos.png)
+
+### Prueba POST
+![POST simulaciones](docs/postman_simulaciones.png)
